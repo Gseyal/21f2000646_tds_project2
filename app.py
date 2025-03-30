@@ -2,12 +2,13 @@ import os
 import json
 from flask import Flask, request, render_template
 import openai
+from flask_cors import CORS
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize Flask app
 app = Flask(__name__)
-
+CORS(app)
 # Route for the home page
 @app.route("/", methods=["GET", "POST"])
 def home():
